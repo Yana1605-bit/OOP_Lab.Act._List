@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace act5
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> grade = new List<int>();
+            int A = 0;
+            int B = 0;
+            int C = 0;
+            int D = 0;
+            int F = 0;
+
+            for (int i = 0; i <= 7; i++)
+            {
+                Console.Write($"Enter grade {i + 1}: ");
+                int input = Convert.ToInt32(Console.ReadLine());
+                grade.Add(input);
+
+                switch (input / 10)
+                {
+                    case 10:
+                    case 9:
+                        Console.WriteLine("Grade: A");
+                        A++;
+                        break;
+                    case 8:
+                        Console.WriteLine("Grade: B");
+                        B++;
+                        break;
+                    case 7:
+                        Console.WriteLine("Grade: C");
+                        C++;
+                        break;
+                    case 6:
+                        Console.WriteLine("Grade: D");
+                        D++;
+                        break;
+                    default:
+                        Console.WriteLine("Grade: F");
+                        F++;
+                        break;
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Total number/s of 'A': {A}");
+            Console.WriteLine($"Total number/s of 'B': {B}");
+            Console.WriteLine($"Total number/s of 'C': {C}");
+            Console.WriteLine($"Total number/s of 'D': {D}");
+            Console.WriteLine($"Total number/s of 'F': {F}");
+        }
+    }
+}
