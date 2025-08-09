@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace act._2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<decimal> price = new List<decimal>();
+
+            Console.WriteLine("Enter item prices or type -1 to finish: ");
+
+            while (true)
+            {
+                Console.Write("Price: ");
+                string isInput = Console.ReadLine();
+
+                if (decimal.TryParse(isInput, out decimal prices))
+                {
+                    if (prices == -1)
+                    {
+                        break;
+                    }
+                    else if (prices < 0)
+                    {
+                        Console.WriteLine("Please enter a valid price.");
+                    }
+                    else
+                    {
+                        price.Add(prices);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect input. Please re-enter.");
+                }
+            }
+
+            if (price.Count > 0)
+            {
+                decimal total = price.Count;
+                decimal average = price.Average();
+                decimal highest = price.Max();
+                decimal lowest = price.Min();
+
+                Console.WriteLine($"\nTotal items: {total}");
+                Console.WriteLine($"The Average price: {average}");
+                Console.WriteLine($"The Highest price: {highest}");
+                Console.WriteLine($"The Lowest price: {lowest}");
+            }
+            else
+            {
+                Console.WriteLine("You didn’t enter any valid prices.");
+            }
+        }
+    }
+}
