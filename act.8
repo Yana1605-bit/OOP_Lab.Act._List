@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace act._8
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> num = new List<int>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"Enter 10 numbers {i + 1}: ");
+                if (int.TryParse(Console.ReadLine(), out int numb))
+                {
+                    num.Add(numb);
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect input. Please enter a valid number.");
+                    i--; 
+                }
+            }
+
+            List<int> filNumbers = num.Where(n => n > 50).ToList();
+
+            Console.WriteLine($"Original list count: {num.Count}");
+            Console.WriteLine($"Count of filtered numbers > 50: {filNumbers.Count}");
+
+            Console.WriteLine("Filtered count of numbers > 50: ");
+            foreach (int nums in filNumbers)
+            {
+                Console.WriteLine(nums);
+            }
+        }
+    }
+}
