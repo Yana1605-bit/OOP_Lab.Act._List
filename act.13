@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace act8
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> names = new List<string>();
+            List<string> students = new List<string>();
+            List<int> scores = new List<int>();
+
+            Console.WriteLine("Enter names and scores: ");
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"Students' names {i + 1}: ");
+                students.Add(Console.ReadLine());
+
+                Console.Write($"Students' scores {i + 1}: ");
+                scores.Add(Convert.ToInt32(Console.ReadLine()));
+                Console.WriteLine();
+            }
+
+            for (int i = 0; i < scores.Count - 1; i++)
+            {
+                for (int j = i + 1; j < scores.Count; j++)
+                {
+                    if (scores[i] < scores[j])
+                    {
+
+                        int tempScore = scores[i];
+                        scores[i] = scores[j];
+                        scores[j] = tempScore;
+
+                        string tempName = students[i];
+                        students[i] = students[j];
+                        students[j] = tempName;
+                    }
+                }
+            }
+
+            Console.WriteLine("\n   Top 3 Students");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"Top {i + 1}: {students[i]},    {scores[i]}");
+            }
+        }
+    }
+}
