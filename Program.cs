@@ -1,39 +1,45 @@
-﻿using System.Security.Cryptography;
-using System.Xml.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-internal class Program
+namespace act1
 {
-    private static void Main(string[] args)
+    internal class Program
     {
-        List<string> names = new List<string>();
-        string input;
-
-        while (true)
+        static void Main(string[] args)
         {
-            Console.Write("Enter a name or 'done' to finish: ");
-            input = Console.ReadLine();
+            List<string> names = new List<string>();
+            string input;
 
-            if (input.ToLower() == "done")
-                break;
-
-            if (!string.IsNullOrWhiteSpace(input))
+            while (true)
             {
-                names.Add(input.ToUpper());
-            }
-        }
+                Console.Write("Enter a name or 'done' to finish: ");
+                input = Console.ReadLine();
 
-        int count_a = 0;
-        Console.WriteLine("\nPresent student names (Uppercase)");
-        foreach (string name in names)
-        {
-            foreach (char n in name)
+                if (input.ToLower() == "done")
+                    break;
+
+                if (!string.IsNullOrWhiteSpace(input))
+                {
+                    names.Add(input.ToUpper());
+                }
+            }
+
+            int count_a = 0;
+            Console.WriteLine("\nPresent student names (Uppercase)");
+            foreach (string name in names)
             {
-                if (n == 'A')
-                    count_a++;
+                foreach (char n in name)
+                {
+                    if (n == 'A')
+                        count_a++;
+                }
+                Console.Write($" {name} \n");
             }
-            Console.Write($" {name} \n");
-        }
 
-        Console.WriteLine($"\nTotal number of 'A': {count_a}");
+            Console.WriteLine($"\nTotal number of 'A': {count_a}");
+        }
     }
 }
