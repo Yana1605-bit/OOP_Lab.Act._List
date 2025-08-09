@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace act10
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int>();
+            List<int> EvenList = new List<int>();
+            List<int> OddList = new List<int>();
+
+            Console.WriteLine("Enter 12 numbers: ");
+
+            for (int i = 0; i < 12; i++)
+            {
+                int num;
+                while (true)
+                {
+                    Console.Write($"Number {i + 1}: ");
+                    if (int.TryParse(Console.ReadLine(), out num))
+                    {
+                        numbers.Add(num);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input.");
+                    }
+                }
+            }
+            Console.WriteLine();
+
+            foreach (int number in numbers)
+            {
+                if (number % 2 == 0)
+                {
+                    EvenList.Add(number);
+                    Console.WriteLine($"{number} is Even.");
+                }
+                else
+                {
+                    OddList.Add(number);
+                    Console.WriteLine($"{number} is Odd.");
+                }
+            }
+
+            Console.WriteLine("\nEven numbers: \n" + string.Join("\n", EvenList));
+            Console.WriteLine("\nOdd numbers: \n" + string.Join("\n", OddList));
+        }
+    }
+}
