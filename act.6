@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace act6
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> cities = new List<string>();
+
+            while (true)
+            {
+
+                Console.Write("Enter a city (type 'exit' when done): ");
+                string input = Console.ReadLine();
+
+                if (input.ToLower() == "exit")
+                {
+                    break;
+                }
+
+                if (!string.IsNullOrWhiteSpace(input))
+                {
+                    cities.Add(input);
+                }
+            }
+
+            List<string> Cities = cities.Distinct().ToList();
+            Cities.Sort();
+
+            Console.WriteLine("\nUnique cities in alphabetical order:");
+            foreach (string city in Cities)
+            {
+                Console.WriteLine(city);
+            }
+        }
+    }
+}
