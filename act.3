@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace act._3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> UNames = new List<string>();
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"Enter 5 usernames {i + 1}: ");
+                string userName = Console.ReadLine();
+                UNames.Add(userName);
+            }
+
+            Console.Write("\nEnter a character to search for in usernames: ");
+            string searchChar = Console.ReadLine();
+
+            char searchChars = char.ToLower(searchChar[0]);
+
+            Console.WriteLine("\nMatched results:");
+            foreach (string search in UNames)
+            {
+                if (search.ToLower().Contains(searchChars))
+                {
+                    Console.WriteLine($"- {search.ToLower()}");
+                }
+            }
+        }
+    }
+}
