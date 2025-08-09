@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace act._9
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> full_names = new List<string>();
+            for (int i = 0; i < 6; i++)
+            {
+                Console.Write($"Enter full name {i + 1}: ");
+                string full_name = Console.ReadLine();
+                full_names.Add(full_name);
+            }
+
+            Console.WriteLine("\nCapitalized results:");
+            foreach (string fullName in full_names)
+            {
+                string[] names = fullName.Split(' ');
+                string capitalized = "";
+                foreach (string name in names)
+                {
+                    if (!string.IsNullOrEmpty(name))
+                    {
+                        string capitalizedPart = name.Substring(0, 1).ToUpper() + name.Substring(1).ToLower();
+                        capitalized += capitalizedPart + " ";
+                    }
+                }
+                Console.WriteLine($"Capitalized name: {capitalized}");
+            }
+        }
+    }
+}
