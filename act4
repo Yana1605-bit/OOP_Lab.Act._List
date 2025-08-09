@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace act4
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> birth_year = new List<string>();
+            string input;
+            int current_year;
+
+            current_year = DateTime.Now.Year;
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"Enter 5 birth year {i + 1}: ");
+                input = Console.ReadLine();
+                birth_year.Add(input);
+            }
+
+            Console.WriteLine("\n");
+
+            foreach (string years in birth_year)
+            {
+                int year = Convert.ToInt32(years);
+                int age = current_year - year;
+
+                if (age < 18)
+                {
+                    Console.WriteLine($"Minor");
+                }
+                else if (age >= 18 && age <= 60)
+                {
+                    Console.WriteLine($"Adult");
+                }
+                else
+                {
+                    Console.WriteLine($"Senior");
+                }
+            }
+        }
+    }
+}
